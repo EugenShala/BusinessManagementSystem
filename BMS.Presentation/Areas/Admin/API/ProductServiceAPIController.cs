@@ -85,7 +85,7 @@ namespace BMS.Presentation.Areas.Admin.API
 
 
         #region Update
-        // PUT api/values/5
+        
         [HttpPut("{id}")]
         public IActionResult Put([FromRoute]int id, [FromBody]ProductService service)
         {
