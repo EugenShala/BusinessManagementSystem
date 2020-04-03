@@ -38,7 +38,9 @@ namespace BMS.Presentation
             services.AddIdentity<IdentityUser,IdentityRole>().AddDefaultTokenProviders()
                 .AddEntityFrameworkStores<ApplicationDbContext>();
             services.AddControllersWithViews();
-            services.AddRazorPages();
+            services.AddRazorPages().AddNewtonsoftJson();
+
+
 
             services.AddSingleton<IEmailSender, EmailSender>();
             services.AddScoped<IProductService, ProductServiceRepository>();
@@ -72,8 +74,8 @@ namespace BMS.Presentation
                 endpoints.MapAreaControllerRoute(
                     "Admin",
                     "Admin",
-                    "Admin/{controller=ProductService}/{action=Index}/{id}"
-                );
+                    "Admin/{controller=Dashboard}/{action=Index}/{id?}");
+                endpoints.MapRazorPages();
 
 
                 endpoints.MapControllerRoute(

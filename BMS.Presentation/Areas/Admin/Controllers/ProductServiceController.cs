@@ -9,7 +9,6 @@ using Microsoft.AspNetCore.Mvc;
 namespace BMS.Presentation.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    
     public class ProductServiceController : Controller
     {
         private readonly IProductService _productService;
@@ -23,7 +22,7 @@ namespace BMS.Presentation.Areas.Admin.Controllers
         public IActionResult Index()
         {
             var service = _productService.GetAllService();
-            return View();
+            return View(service);
         }
 
         [HttpGet]
@@ -55,7 +54,7 @@ namespace BMS.Presentation.Areas.Admin.Controllers
         }
 
 
-        [HttpGet("{id}")]
+        [HttpGet]
         public IActionResult Update(int id)
         {
             ProductService service = _productService.GetById(id);
@@ -67,7 +66,7 @@ namespace BMS.Presentation.Areas.Admin.Controllers
             return View(service);
         }
 
-        [HttpPost("{id}")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult Update(ProductService service)
         {
@@ -83,7 +82,7 @@ namespace BMS.Presentation.Areas.Admin.Controllers
 
 
 
-        [HttpGet("{id}")]
+        [HttpGet]
         public IActionResult DeleteDepartment(int id)
         {
             var deleteService = _productService.GetById(id);
@@ -91,7 +90,7 @@ namespace BMS.Presentation.Areas.Admin.Controllers
             return View(deleteService);
         }
 
-        [HttpPost("{id}")]
+        [HttpPost]
         [ValidateAntiForgeryToken]
         public IActionResult DeleteDepartment(int id, ProductService service)
         {

@@ -3,6 +3,7 @@ using System.Linq;
 using BMS.BusinessLogic.Infrastructure;
 using BMS.DataAccess.Data;
 using BMS.DataAccess.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace BMS.BusinessLogic.Repository
 {
@@ -40,7 +41,8 @@ namespace BMS.BusinessLogic.Repository
 
         public void Update(ProductService service)
         {
-            _dbContext.ProductServices.Update(service);
+            //_dbContext.Entry(service).State = EntityState.Modified;
+           _dbContext.ProductServices.Update(service);
         }
 
         public void Save()
