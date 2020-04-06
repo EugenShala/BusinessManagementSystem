@@ -13,7 +13,8 @@ using Microsoft.AspNetCore.Authorization;
 namespace BMS.Presentation.Areas.Admin.API
 {
     [Route("api/[controller]")]
-   // [Authorize(Roles = "Admin")]
+    [Authorize(Roles = "Admin")]
+
     [ApiController]
     public class ProductServiceAPIController : ControllerBase
     {
@@ -51,7 +52,6 @@ namespace BMS.Presentation.Areas.Admin.API
         }
 
         #endregion
-
 
         #region Post
         [HttpPost]
