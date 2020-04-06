@@ -8,10 +8,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using BMS.DataAccess.Data;
 using BMS.DataAccess.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BMS.Presentation.Areas.Admin.API
 {
     [Route("api/[controller]")]
+   // [Authorize(Roles = "Admin")]
     [ApiController]
     public class ProductServiceAPIController : ControllerBase
     {

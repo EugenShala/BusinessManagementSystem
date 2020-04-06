@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using BMS.Presentation.Models;
+using Microsoft.AspNetCore.Authorization;
 
 namespace BMS.Presentation.Controllers
 {
@@ -17,12 +18,12 @@ namespace BMS.Presentation.Controllers
         {
             _logger = logger;
         }
+       
 
         public IActionResult Index()
         {
             return View();
         }
-
         public IActionResult Privacy()
         {
             return View();

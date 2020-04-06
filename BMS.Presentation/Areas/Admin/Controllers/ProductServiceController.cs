@@ -4,11 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using BMS.BusinessLogic.Infrastructure;
 using BMS.DataAccess.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BMS.Presentation.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
+
     public class ProductServiceController : Controller
     {
         private readonly IProductService _productService;
